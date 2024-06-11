@@ -9,7 +9,6 @@ const App = () => {
     mainStreamManager,
     publisher,
     subscribers,
-    currentVideoDevice,
     handleChangeUsername,
     handleChangeMySessionId,
     joinSession,
