@@ -1,7 +1,8 @@
 import OpenViduVideoComponent from "./OvVideo";
+import type { StreamManager } from "openvidu-browser";
 
 interface UserVideoComponentProps {
-  streamManager: any;
+  streamManager: StreamManager;
 }
 
 const UserVideoComponent = ({ streamManager }: UserVideoComponentProps) => {

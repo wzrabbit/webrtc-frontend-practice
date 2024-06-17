@@ -1,7 +1,8 @@
 import { useRef, useEffect } from "react";
+import type { StreamManager } from "openvidu-browser";
 
 interface OpenViduVideoComponentProps {
-  streamManager: any;
+  streamManager: StreamManager;
 }
 
 const OpenViduVideoComponent = ({

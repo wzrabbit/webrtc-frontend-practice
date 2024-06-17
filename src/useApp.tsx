@@ -2,15 +2,28 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import type { ChangeEventHandler } from "react";
 import getToken from "./domains/getToken";
 import { OpenVidu } from "openvidu-browser";
+import type {
+  Session,
+  StreamManager,
+  Publisher,
+  Subscriber,
+  Device,
+} from "openvidu-browser";
 
 const useApp = () => {
   const [username, setUsername] = useState("");
   const [mySessionId, setMySessionId] = useState("");
-  const [session, setSession] = useState<any>(undefined);
-  const [mainStreamManager, setMainStreamManager] = useState<any>(undefined);
-  const [publisher, setPublisher] = useState<any>(undefined);
-  const [subscribers, setSubscribers] = useState<any[]>([]);
-  const [currentVideoDevice, setCurrentVideoDevice] = useState<any>(undefined);
+  const [session, setSession] = useState<Session | undefined>(undefined);
+  const [mainStreamManager, setMainStreamManager] = useState<
+    StreamManager | undefined
+  >(undefined);
+  const [publisher, setPublisher] = useState<Publisher | undefined>(undefined);
+  const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
+  const [currentVideoDevice, setCurrentVideoDevice] = useState<
+    Device | undefined
+  >(undefined);
+
+  console.log(subscribers);
 
   const openVidu = useRef<OpenVidu | null>();
 
