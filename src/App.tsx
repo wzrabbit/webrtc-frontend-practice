@@ -28,12 +28,22 @@ const App = () => {
       <h2>퍼블리셔</h2>
       {publisher && <UserVideoComponent streamManager={publisher} />}
       <h2>다른 참가자들</h2>
-      {subscribers.map((subscriber) => (
-        <div key={subscriber.id}>
-          <span>{subscriber.id}</span>
-          <UserVideoComponent streamManager={subscriber} />
-        </div>
-      ))}
+      {subscribers.map((subscriber) => {
+        const username = JSON.parse(
+          subscriber.stream.connection.data
+        ).clientData;
+        const key = subscriber.stream.streamId;
+
+        return (
+          <div key={subscriber.stream.streamId}>
+            <ul>
+              <li>{`참가자명: ${username}`}</li>
+              <li>{`key 값: ${key}`}</li>
+            </ul>
+            <UserVideoComponent streamManager={subscriber} />
+          </div>
+        );
+      })}
     </>
   ) : (
     <>
