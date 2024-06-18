@@ -121,10 +121,10 @@ const useApp = () => {
   }, [session]);
 
   useEffect(() => {
-    document.addEventListener("beforeunload", leaveSession);
+    window.addEventListener("beforeunload", leaveSession);
 
     return () => {
-      document.removeEventListener("beforeunload", leaveSession);
+      window.removeEventListener("beforeunload", leaveSession);
     };
   }, [leaveSession]);
 
