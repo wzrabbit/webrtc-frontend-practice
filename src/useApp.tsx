@@ -110,9 +110,7 @@ const useApp = () => {
   };
 
   const leaveSession = useCallback(() => {
-    if (session) {
-      session.disconnect();
-    }
+    session?.disconnect();
 
     openVidu.current = null;
 
