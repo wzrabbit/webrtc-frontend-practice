@@ -26,7 +26,20 @@ const App = () => {
         <UserVideoComponent streamManager={mainStreamManager} />
       )}
       <h2>퍼블리셔</h2>
-      {publisher && <UserVideoComponent streamManager={publisher} />}
+      {publisher && (
+        <>
+          <UserVideoComponent streamManager={publisher} />
+          <button
+            type="button"
+            onClick={() => {
+              const isVideoActive = publisher.stream.videoActive;
+              publisher.publishVideo(!isVideoActive);
+            }}
+          >
+            캠 켜기/끄기
+          </button>
+        </>
+      )}
       <h2>다른 참가자들</h2>
       {subscribers.map((subscriber) => {
         const username = JSON.parse(
