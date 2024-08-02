@@ -18,7 +18,7 @@ const OpenViduVideoComponent = ({
     }
 
     streamManager.addVideoElement($videoElement);
-  }, [streamManager, videoRef]);
+  }, [streamManager]);
 
   return <video autoPlay={true} ref={videoRef} />;
 };
