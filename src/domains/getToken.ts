@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APPLICATION_SERVER_URL = "http://localhost:5000";
+const APPLICATION_SERVER_URL = "https://demos.openvidu.io";
 
 const getToken = async (mySessionId: string): Promise<string> => {
   const sessionId = await createSession(mySessionId);
